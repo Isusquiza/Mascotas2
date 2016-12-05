@@ -15,12 +15,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main2Activity"
-            android:parentActivityName=".MainActivity"></activity>
+        <activity
+            android:name=".Main2Activity"
+            android:parentActivityName=".MainActivity" />
+
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value=".MainActivity">
-        </meta-data>
+            android:value=".MainActivity" />
+
+        <activity android:name=".ActivityAbout" />
+        <activity android:name=".ActivityContacto" />
+        <activity android:name=".mail.EnviarMail2"></activity>
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

@@ -1,7 +1,6 @@
-package com.eisusquiza.mascotas;
+package com.eisusquiza.mascotas.adapter;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,9 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.eisusquiza.mascotas.Mascota;
+import com.eisusquiza.mascotas.R;
 
-import static com.eisusquiza.mascotas.R.id.tvNumeroEstrellasCV;
+import java.util.ArrayList;
 
 /**
  * Created by eisusquiza on 27/11/2016.

@@ -6,6 +6,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
+import com.eisusquiza.mascotas.adapter.ContactoAdaptador;
+
 import java.util.ArrayList;
 
 public class Main2Activity extends AppCompatActivity {
