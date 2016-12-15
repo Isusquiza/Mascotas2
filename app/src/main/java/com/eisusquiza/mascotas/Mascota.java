@@ -6,21 +6,14 @@ package com.eisusquiza.mascotas;
 
 public class Mascota {
 
-
-
-    private int id;
-    private String nombre;
     private int foto;
-    private int likes;
+    private String nombre;
+    private int estrellas;
 
-    public Mascota(int foto, String nombre, int likes) {
+    public Mascota(int foto, String nombre, int estrellas) {
         this.foto = foto;
         this.nombre = nombre;
-        this.likes = likes;
-    }
-
-    public Mascota() {
-
+        this.estrellas = estrellas;
     }
 
     public int getFoto() {
@@ -39,20 +32,12 @@ public class Mascota {
         this.nombre = nombre;
     }
 
-    public int getLikes() {
-        return likes;
+    public int getEstrellas() {
+        return estrellas;
     }
 
-    public void setLikes(int likes) {
-        this.likes = likes;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setEstrellas(int estrellas) {
+        this.estrellas = estrellas;
     }
 
 

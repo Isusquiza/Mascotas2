@@ -38,7 +38,7 @@ public class ContactoAdaptador2 extends RecyclerView.Adapter<ContactoAdaptador2.
         Mascota mascotas = mascotas2.get(position);
         mascotaViewHolder.imgFotoContacto.setImageResource(mascotas.getFoto());
         mascotaViewHolder.tvNombreCV.setText(mascotas.getNombre());
-        mascotaViewHolder.tvNumeroEstrellasCV.setText(mascotas.getLikes());
+        mascotaViewHolder.tvNumeroEstrellasCV.setText(mascotas.getEstrellas());
 
     }
 
@@ -59,7 +59,7 @@ public class ContactoAdaptador2 extends RecyclerView.Adapter<ContactoAdaptador2.
 
             imgFotoContacto = (ImageView) itemView.findViewById(R.id.imgFotoContacto);
             tvNombreCV      = (TextView) itemView.findViewById(R.id.tvNombreCV);
-           /* tvNumeroEstrellasCV = (TextView) itemView.findViewById(R.id.tvNumeroEstrellasCV);*/
+            tvNumeroEstrellasCV = (TextView) itemView.findViewById(R.id.tvNumeroEstrellasCV);
             btnHueso  = (ImageButton) itemView.findViewById(R.id.btnHueso);
         }
     }
