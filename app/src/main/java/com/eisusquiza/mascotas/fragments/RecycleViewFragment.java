@@ -20,6 +20,8 @@ import com.eisusquiza.mascotas.Main2Activity;
 import com.eisusquiza.mascotas.Mascota;
 import com.eisusquiza.mascotas.R;
 import com.eisusquiza.mascotas.adapter.ContactoAdaptador;
+import com.eisusquiza.mascotas.presentador.IRecyclerViewFragmentPresenter;
+import com.eisusquiza.mascotas.presentador.RecyclerViewFragmentPresenter;
 
 import java.util.ArrayList;
 
@@ -27,10 +29,11 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RecycleViewFragment extends Fragment {
+public class RecycleViewFragment extends Fragment implements IRecyclerViewFragmentView{
 
     ArrayList<Mascota> mascotas;
     RecyclerView listaMascotas;
+    private IRecyclerViewFragmentPresenter presenter;
 
     public RecycleViewFragment() {
         // Required empty public constructor
@@ -46,14 +49,8 @@ public class RecycleViewFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_recycle_view, container, false);
 
         listaMascotas = (RecyclerView) v.findViewById(R.id.rvMascotas);
-
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-
-        listaMascotas.setLayoutManager(llm);
-        inicializarListaContactos();
-        inicializarAdaptador();
-
+        //inicializarListaContactos();
+        presenter = new RecyclerViewFragmentPresenter(this, getContext());
         return v;
     }
 
@@ -63,43 +60,10 @@ public class RecycleViewFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
-   /* @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu,menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.mRefresh: //AQUI ESCRIBIR LA ACCION
-                Intent tent  = new Intent(getContext(), Main2Activity.class );
-                startActivity(tent);
-                break;
 
-            case R.id.mContacto:
-                Intent ye = new Intent (getContext(), ActivityContacto.class);
-                startActivity(ye);
-                break;
 
-            case R.id.mAcerca:
-                Intent fe = new Intent (getContext(), ActivityAbout.class);
-                startActivity(fe);
-                break;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-*/
-
-    public void inicializarAdaptador() {
-        adaptador = new ContactoAdaptador(mascotas, getActivity());
-        listaMascotas.setAdapter(adaptador);
-    }
-
-    public ContactoAdaptador adaptador;
-
-    public void inicializarListaContactos() {
+    /*public void inicializarListaContactos() {
 
         mascotas = new ArrayList<Mascota>();
 
@@ -111,6 +75,23 @@ public class RecycleViewFragment extends Fragment {
         mascotas.add(new Mascota(R.drawable.skye_png, "Skye", 8));
         mascotas.add(new Mascota(R.drawable.zuma_png, "Zuma", 5));
 
+    }*/
+
+    @Override
+    public void generarLinearLayoutVertical() {
+        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        listaMascotas.setLayoutManager(llm);
     }
 
+    @Override
+    public ContactoAdaptador crearAdaptador(ArrayList<Mascota> mascotas) {
+        ContactoAdaptador adaptador = new ContactoAdaptador(mascotas, getActivity());
+        return adaptador;
+    }
+
+    @Override
+    public void inicializarAdaptadorRV(ContactoAdaptador adaptador) {
+        listaMascotas.setAdapter(adaptador);
+    }
 }
