@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Petagram</string>
     <string name="pnombre">nombre</string>
-    <string name="numeroestrellas">5</string>
+    <string name="numeroestrellas">0</string>
     <string name="menu_contacto">Contacto</string>
     <string name="menu_acercade">Acerca de</string>
     <string name="edition_name">Nombre Completo</string>

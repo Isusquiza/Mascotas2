@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.eisusquiza.mascotas.Mascota;
 import com.eisusquiza.mascotas.R;
+import com.eisusquiza.mascotas.db.ConstructorContactos;
 
 import java.util.ArrayList;
 
@@ -36,24 +37,28 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
     }
 
     @Override
-    public void onBindViewHolder(ContactoViewHolder mascotaViewHolder, int position) { //ASOCIA CADA ELEMENTO DE LA LISTA CON CADA VIEW
+    public void onBindViewHolder(final ContactoViewHolder mascotaViewHolder, int position) { //ASOCIA CADA ELEMENTO DE LA LISTA CON CADA VIEW
 
         final Mascota mascota = mascotas.get(position);
         mascotaViewHolder.imgFotoContacto.setImageResource(mascota.getFoto());
         mascotaViewHolder.tvNombreCV.setText(mascota.getNombre());
+        mascotaViewHolder.tvLikesCV.setText(String.valueOf(mascota.getLikes()));
 
 
         mascotaViewHolder.btnHueso.setOnClickListener(new View.OnClickListener() {
-            int contador = 0;
+           // int contador = 0;
            //TextView tvNumeroEstrellasCV = (TextView) View.OnClickListener.findViewById(R.id.tvNumeroEstrellasCV);
          //   TextView tvNumeroEstrellasCV = (TextView) findViewById(R.id.tvNumeroEstrellasCV);
 
            @Override
             public void onClick(View v) {
                 Toast.makeText(activity, "Diste Like a :" + mascota.getNombre(), Toast.LENGTH_SHORT).show();
-                contador++;
-                // MODIFICAR TEXTO DEL TEXTVIEW
-             // tvNumeroEstrellasCV.setText(contador);
+               // contador++;
+
+               ConstructorContactos constructorContactos = new ConstructorContactos(activity);
+               constructorContactos.darLikeContacto(mascota);
+               mascotaViewHolder.tvLikesCV.setText(constructorContactos.obtenerLikesContacto(mascota)+ " "+ "Likes");
+
             }
         });
 
@@ -69,6 +74,7 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
         private ImageView imgFotoContacto;
         private TextView tvNombreCV;
         private ImageButton btnHueso;
+        private TextView tvLikesCV;
 
 
         public ContactoViewHolder(View itemView) {
@@ -76,6 +82,7 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
             imgFotoContacto = (ImageView) itemView.findViewById(R.id.imgFotoContacto);
             tvNombreCV = (TextView) itemView.findViewById(R.id.tvNombreCV);
             btnHueso = (ImageButton) itemView.findViewById(R.id.btnHueso);
+            tvLikesCV = (TextView) itemView.findViewById(R.id.tvLikesCV);
         }
     }
 
