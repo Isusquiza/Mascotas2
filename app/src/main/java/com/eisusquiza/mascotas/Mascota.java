@@ -1,34 +1,42 @@
 package com.eisusquiza.mascotas;
 
+import com.eisusquiza.mascotas.pojo.Foto;
+
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  * Created by eisusquiza on 27/11/2016.
  */
 
-public class Mascota {
-
-
-
-    private int id;
+public class Mascota implements Comparable{
+    private int votos;
     private String nombre;
-    private int foto;
-    private int likes;
+    private String id;
+    private String picture;
+    private String fecha;
+    private ArrayList<Foto> fotos;
 
-    public Mascota(int foto, String nombre, int likes) {
-        this.foto = foto;
-        this.nombre = nombre;
-        this.likes = likes;
+
+
+    public Mascota(String picture, int likes, String nombre, ArrayList<Foto> fotos) {
+        this.picture=picture;
+        this.nombre=nombre;
+        this.fotos=fotos;
+        this.votos = likes;
     }
 
     public Mascota() {
 
     }
 
-    public int getFoto() {
-        return foto;
+
+    public int getVotos() {
+        return votos;
     }
 
-    public void setFoto(int foto) {
-        this.foto = foto;
+    public void setVotos(int votos) {
+        this.votos = votos;
     }
 
     public String getNombre() {
@@ -39,21 +47,44 @@ public class Mascota {
         this.nombre = nombre;
     }
 
-    public int getLikes() {
-        return likes;
-    }
-
-    public void setLikes(int likes) {
-        this.likes = likes;
-    }
-
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
+    public String getPicture() {
+        return picture;
+    }
 
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public ArrayList<Foto> getFotos() {
+        return fotos;
+    }
+
+    public void setFotos(ArrayList<Foto> fotos) {
+        this.fotos = fotos;
+    }
+
+    @Override
+    public int compareTo(Object otra) {
+
+        Date d=new Date(Long.parseLong(this.getFecha())*1000);
+        Date d2=new Date(Long.parseLong(((Mascota)otra).getFecha())*1000);
+
+        return -d.compareTo(d2);
+    }
 }

@@ -6,6 +6,7 @@
     <dimen name="left">10dp</dimen>
     <dimen name="nombre_cardview">20sp</dimen>
     <dimen name="elevacion_actionbar">4dp</dimen>
+    <dimen name="nomnbre_cardview">20sp</dimen>
 
 
 </resources>

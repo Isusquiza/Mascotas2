@@ -7,17 +7,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.widget.ImageButton;
 
-import com.eisusquiza.mascotas.adapter.ContactoAdaptador;
 import com.eisusquiza.mascotas.adapter.PageAdapter;
+import com.eisusquiza.mascotas.fragments.ListaMascotaFragment;
 import com.eisusquiza.mascotas.fragments.PerfilFragment;
-import com.eisusquiza.mascotas.fragments.RecycleViewFragment;
 
 import java.util.ArrayList;
 
@@ -38,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
-            case R.id.mRefresh: //AQUI ESCRIBIR LA ACCION
-                Intent intent  = new Intent(this, Main2Activity.class );
+            case R.id.mtopFavoritos: //AQUI ESCRIBIR LA ACCION
+                Intent intent  = new Intent(this, Favoritas.class );
                 startActivity(intent);
                 break;
 
@@ -51,6 +48,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.mAcerca:
                 Intent i = new Intent (this, ActivityAbout.class);
                 startActivity(i);
+                break;
+
+            case R.id.mConfigCuenta:
+                Intent n = new Intent (this, ActivityConfigCuenta.class);
+                startActivity(n);
                 break;
         }
 
@@ -75,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             setSupportActionBar(toolbar);
         }
 
-        Button btnHueso = (Button) findViewById(R.id.btnHueso);
+        ImageButton btnHueso = (ImageButton) findViewById(R.id.btnHuesoColor);
 
        // Toolbar miActionBar = (Toolbar) findViewById(R.id.miActionBar);
        // setSupportActionBar(miActionBar);
@@ -109,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Fragment> agregarFragments(){
         ArrayList<Fragment> fragments = new ArrayList<>();
 
-        fragments.add(new RecycleViewFragment());
+        fragments.add(new ListaMascotaFragment());
         fragments.add(new PerfilFragment());
 
         return fragments;

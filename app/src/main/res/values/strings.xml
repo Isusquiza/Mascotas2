@@ -10,8 +10,15 @@
     <string name="envio_mensaje">Enviar Comentario</string>
     <string name="bio_completa">Principiante en el desarrollo de aplicaciones en Android</string>
     <string name="nombre_mascota_Fragment">Rocky</string>
+    <string name="config_cuenta">Configurar Cuenta</string>
+    <string name="plikes">0</string>
+    <string name="diferentes_usuarios">Escribe tu usuario</string>
+    <string name="guardar_cuenta">Guardar cuenta</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fecha">18/02/17 04:50:41</string>
+    <string name="txtusuario">Ingresa tu usuario</string>
+
 
 </resources>

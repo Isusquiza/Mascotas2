@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.eisusquiza.mascotas">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Main2Activity"
+            android:name=".Favoritas"
             android:parentActivityName=".MainActivity" />
 
         <meta-data
@@ -25,8 +28,9 @@
 
         <activity android:name=".ActivityAbout" />
         <activity android:name=".ActivityContacto" />
-        <activity android:name=".mail.EnviarMail2"></activity>
+        <activity android:name=".mail.EnviarMail2" />
+        <activity android:name=".ActivityConfigCuenta" />
+        <activity android:name=".PerfilOtrosApi"></activity>
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

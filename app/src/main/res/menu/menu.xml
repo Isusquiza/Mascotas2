@@ -16,7 +16,14 @@
     </item>
 
     <item
-        android:id="@+id/mRefresh"
+        android:id="@+id/mConfigCuenta"
+        android:title="@string/config_cuenta"
+        android:orderInCategory="102"
+        >
+    </item>
+
+    <item
+        android:id="@+id/mtopFavoritos"
         android:title="Refresh"
         android:orderInCategory="102"
         app:showAsAction="always"

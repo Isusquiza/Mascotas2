@@ -22,19 +22,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/monkeyhead"
+            android:background="@color/fondo2"
             />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="fill_horizontal"
+            >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <ImageButton
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:id="@+id/btnHueso"
-                android:background="@drawable/dog_bone_48"
-                />
+
 
             <TextView
                     android:id="@+id/tvNombreCV"
@@ -48,23 +51,45 @@
                 />
 
             <TextView
-                android:id="@+id/tvLikesCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/fecha"
+                android:text="@string/fecha"
+                android:layout_marginTop="5dp"
+                />
+        </LinearLayout>
+
+        <ImageButton
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:id="@+id/btnHuesoColor"
+            android:background="@drawable/dog_bone_48_color"
+            android:layout_gravity="center"
+            android:gravity="right"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_alignParentRight="true" />
+            />
+
+
+        <TextView
+                android:id="@+id/votos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/numeroestrellas"
                 android:textSize="@dimen/nombre_cardview"
                 android:textStyle="bold"
-                android:layout_marginRight="5dp"
-                />
+            android:layout_toStartOf="@+id/btnHuesoColor"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_toLeftOf="@+id/btnHuesoColor" />
 
-            <ImageButton
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:id="@+id/btnHuesoColor"
-                android:background="@drawable/dog_bone_48_color"
-                />
 
-                 </LinearLayout>
+
+    </RelativeLayout>
+
+
 
     </LinearLayout>
 
