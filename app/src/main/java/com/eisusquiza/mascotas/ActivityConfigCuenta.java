@@ -16,9 +16,12 @@ import com.eisusquiza.mascotas.fragments.PerfilFragment;
 import com.eisusquiza.mascotas.mail.EnviarMail;
 
 import static com.eisusquiza.mascotas.R.id.btnBotonSig;
+import static com.eisusquiza.mascotas.R.id.usuario;
 
 public class ActivityConfigCuenta extends AppCompatActivity {
 
+
+    public static String usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,22 +30,28 @@ public class ActivityConfigCuenta extends AppCompatActivity {
     }
 
 
-    public void guardarCuenta(View v){
-        TextInputEditText cuenta=(TextInputEditText) findViewById(R.id.usuario);
+    public void guardarCuenta(View v) {
+        TextInputEditText cuenta = (TextInputEditText) findViewById(R.id.usuario);
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String usuario=cuenta.getText().toString();
-                SharedPreferences cuentaGuardada=getSharedPreferences("Cuenta", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor=cuentaGuardada.edit();
-                editor.putString("Usuario",usuario);
+                usuario = cuenta.getText().toString();
+                SharedPreferences cuentaGuardada = getSharedPreferences("Cuenta", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = cuentaGuardada.edit();
+                editor.putString("Usuario", usuario);
                 editor.commit();
                 Toast.makeText(ActivityConfigCuenta.this, "Cuenta guardada con exito", Toast.LENGTH_SHORT).show();
-                Intent i=new Intent(ActivityConfigCuenta.this,MainActivity.class);
+                Intent i = new Intent(ActivityConfigCuenta.this, MainActivity.class);
                 startActivity(i);
                 finish();
             }
         });
+
+
+    }
+
+    public static String getIdUsuario(){
+        return usuario;
     }
 }
 

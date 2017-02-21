@@ -30,7 +30,19 @@
         <activity android:name=".ActivityContacto" />
         <activity android:name=".mail.EnviarMail2" />
         <activity android:name=".ActivityConfigCuenta" />
-        <activity android:name=".PerfilOtrosApi"></activity>
+
+        <service android:name=".notificaciones.NotificacionService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".notificaciones.NotificacionIDTokenService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".ActivityNotificaciones"></activity>
     </application>
 
 </manifest>

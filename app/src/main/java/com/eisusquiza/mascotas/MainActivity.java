@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import com.eisusquiza.mascotas.adapter.PageAdapter;
 import com.eisusquiza.mascotas.fragments.ListaMascotaFragment;
 import com.eisusquiza.mascotas.fragments.PerfilFragment;
+import com.eisusquiza.mascotas.notificaciones.NotificacionIDTokenService;
 
 import java.util.ArrayList;
 
@@ -54,6 +55,13 @@ public class MainActivity extends AppCompatActivity {
                 Intent n = new Intent (this, ActivityConfigCuenta.class);
                 startActivity(n);
                 break;
+
+            case R.id.mPermitirNoti:
+                Intent u = new Intent (this, ActivityNotificaciones.class);
+                startActivity(u);
+                break;
+
+
         }
 
         return super.onOptionsItemSelected(item);

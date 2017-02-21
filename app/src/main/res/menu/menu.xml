@@ -23,6 +23,13 @@
     </item>
 
     <item
+        android:id="@+id/mPermitirNoti"
+        android:title="@string/permitir_notificaciones"
+        android:orderInCategory="102"
+        >
+    </item>
+
+    <item
         android:id="@+id/mtopFavoritos"
         android:title="Refresh"
         android:orderInCategory="102"

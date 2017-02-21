@@ -11,6 +11,7 @@
     <string name="bio_completa">Principiante en el desarrollo de aplicaciones en Android</string>
     <string name="nombre_mascota_Fragment">Rocky</string>
     <string name="config_cuenta">Configurar Cuenta</string>
+    <string name="permitir_notificaciones">Permitir notificaciones</string>
     <string name="plikes">0</string>
     <string name="diferentes_usuarios">Escribe tu usuario</string>
     <string name="guardar_cuenta">Guardar cuenta</string>

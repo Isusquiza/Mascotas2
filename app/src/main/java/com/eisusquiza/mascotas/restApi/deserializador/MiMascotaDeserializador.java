@@ -38,8 +38,6 @@ public class MiMascotaDeserializador implements JsonDeserializer<MiMascotaRespon
 
         miMascotaResponse.setMiMascota(miMascota);
         return miMascotaResponse;
-
-
     }
 
     private ArrayList<Foto> obtenerFotos(JsonArray data) {
