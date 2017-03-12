@@ -15,21 +15,30 @@ public class Mascota implements Comparable{
     private String id;
     private String picture;
     private String fecha;
+    private String id_fotos;
     private ArrayList<Foto> fotos;
 
 
 
-    public Mascota(String picture, int likes, String nombre, ArrayList<Foto> fotos) {
+    public Mascota(String picture, int likes, String nombre, String id_fotos, ArrayList<Foto> fotos) {
         this.picture=picture;
         this.nombre=nombre;
         this.fotos=fotos;
         this.votos = likes;
+        this.id_fotos=id_fotos;
     }
 
     public Mascota() {
 
     }
 
+    public String getId_fotos() {
+        return id_fotos;
+    }
+
+    public void setId_fotos(String id_fotos) {
+        this.id_fotos = id_fotos;
+    }
 
     public int getVotos() {
         return votos;

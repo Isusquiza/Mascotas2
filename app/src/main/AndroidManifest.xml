@@ -42,7 +42,12 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".ActivityNotificaciones"></activity>
+        <activity android:name=".ActivityNotificaciones" />
+        <activity
+            android:name=".EnviarRespuestaAFirebase2"
+            android:label="@string/title_activity_enviar_respuesta_afirebase2"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".Notificacion"></activity>
     </application>
 
 </manifest>

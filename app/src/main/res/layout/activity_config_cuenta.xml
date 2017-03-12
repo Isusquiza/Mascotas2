@@ -46,6 +46,15 @@
     </android.support.design.widget.TextInputLayout>
 
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvUsuariosSandbox"
+        android:text="@string/UsuariosSandbox"
+        android:layout_marginLeft="10sp"
+        />
+
     <Button
         android:id="@+id/btnGuardarCuenta"
         android:layout_width="match_parent"

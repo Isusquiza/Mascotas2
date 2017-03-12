@@ -8,22 +8,24 @@ public class UsuarioResponseServer {
 
     private String id;
     private String token;
-    private String id_instagram;
+    private String id_instagram_emisor;
 
-    public UsuarioResponseServer(String id, String token, String id_instagram) {
+    public UsuarioResponseServer(String id, String token, String id_instagram_emisor) {
         this.id = id;
         this.token = token;
-        this.id_instagram = id_instagram;
+        this.id_instagram_emisor = id_instagram_emisor;
+
     }
 
     public UsuarioResponseServer(){};
 
-    public String getId_instagram() {
-        return id_instagram;
+
+    public String getId_instagram_emisor() {
+        return id_instagram_emisor;
     }
 
-    public void setId_instagram(String id_instagram) {
-        this.id_instagram = id_instagram;
+    public void setId_instagram_emisor(String id_instagram_emisor) {
+        this.id_instagram_emisor = id_instagram_emisor;
     }
 
     public String getId() {

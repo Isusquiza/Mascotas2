@@ -31,6 +31,7 @@ public class ActivityNotificaciones extends AppCompatActivity {
 
     private static final String TAG = "FIRABASE TOKEN";
     private static final String TAG2 = "ID_INSTAGRAM";
+    public static String id_foto_instagram = "";
 
 
     //JsonArray data=json.getAsJsonObject().getAsJsonArray(JsonKeys.MEDIA_RESPONSE_ARRAY);
@@ -44,13 +45,13 @@ public class ActivityNotificaciones extends AppCompatActivity {
         lanzasNotificacionID();
     }
 
-    private void enviarTokenRegistro(String token, String id_instagram) {
+    private void enviarTokenRegistro(String token, String id_instagram_emisor) {
         Log.d(TAG, token);
-        Log.d(TAG2, id_instagram);
+        Log.d(TAG2, id_instagram_emisor);
         Toast.makeText(this, "Cuenta Activa para Notificaciones", Toast.LENGTH_LONG).show();
         RestApiAdapterServer restApiAdapterServer = new RestApiAdapterServer();
         EndPointsServer endPointsServer = restApiAdapterServer.establecerconexionRestApiServer();
-        Call<UsuarioResponseServer> usuarioResponseServerCall = endPointsServer.registrarTokenID(token, id_instagram);
+        Call<UsuarioResponseServer> usuarioResponseServerCall = endPointsServer.registrarTokenID(token, id_instagram_emisor);
 
         usuarioResponseServerCall.enqueue(new Callback<UsuarioResponseServer>() {
             @Override
@@ -58,7 +59,8 @@ public class ActivityNotificaciones extends AppCompatActivity {
                 UsuarioResponseServer usuarioResponseServer = response.body();
                 Log.d("ID_FIREBASE", usuarioResponseServer.getId());
                 Log.d("TOKEN_FIREBASE", usuarioResponseServer.getToken());
-                Log.d("ID_INSTAGRAM", usuarioResponseServer.getId_instagram());
+                Log.d("ID_INSTAGRAM", usuarioResponseServer.getId_instagram_emisor());
+
             }
 
             @Override
@@ -69,15 +71,22 @@ public class ActivityNotificaciones extends AppCompatActivity {
 
     public void lanzasNotificacionID() {
 
-        String id_instagram;
+        String id_instagram_emisor;
+
         SharedPreferences prefs = getSharedPreferences("Cuenta", Context.MODE_PRIVATE);
-        id_instagram = prefs.getString("Usuario", "Usuario No encontrado");
+        id_instagram_emisor = prefs.getString("Usuario", "Usuario No encontrado");
+
 
 
         String token = FirebaseInstanceId.getInstance().getToken();
-        enviarTokenRegistro(token, id_instagram);
+        enviarTokenRegistro(token, id_instagram_emisor);
         Toast.makeText(this, "Su id_de teléfono es:" + token, Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "Su id_de instagram es: " + id_instagram, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Su id_de instagram es: " + id_instagram_emisor, Toast.LENGTH_SHORT).show();
+        SharedPreferences prefToken = getSharedPreferences("Token", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefToken.edit();
+        editor.putString("Token", token);
+        editor.putString("id_instagram_emisor", id_instagram_emisor);
+        editor.commit();
     }
 
 

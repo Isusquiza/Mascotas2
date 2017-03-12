@@ -20,6 +20,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="fecha">18/02/17 04:50:41</string>
     <string name="txtusuario">Ingresa tu usuario</string>
+    <string name="UsuariosSandbox">Usuarios que permitieron Sandbox: turtus111 y perritopochito</string>
+    <string name="title_activity_enviar_respuesta_afirebase2">EnviarRespuestaAFirebase2</string>
 
 
 </resources>

@@ -1,26 +1,47 @@
 package com.eisusquiza.mascotas.adapter;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.eisusquiza.mascotas.ActivityNotificaciones;
+import com.eisusquiza.mascotas.EnviarRespuestaAFirebase2;
+import com.eisusquiza.mascotas.EnviarRespuestaFirebase;
 import com.eisusquiza.mascotas.Mascota;
 import com.eisusquiza.mascotas.R;
+import com.eisusquiza.mascotas.restApiServer.EndPointsServer;
+import com.eisusquiza.mascotas.restApiServer.adapterServer.RestApiAdapterServer;
+import com.eisusquiza.mascotas.restApiServer.modelServer.UsuarioResponseServer;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static com.eisusquiza.mascotas.ActivityNotificaciones.id_foto_instagram;
+import static com.eisusquiza.mascotas.EnviarRespuestaAFirebase2.id_instagram;
+
 /**
  * Created by eisusquiza on 27/11/2016.
  */
 
 public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.ContactoViewHolder>{
+
+
+
 
     public ContactoAdaptador(ArrayList<Mascota> mascotas, Activity activity){
         this.mascotas = mascotas;
@@ -58,7 +79,32 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
         holder.fecha.setText(sdf.format(c.getTime()));
         holder.nombre.setText(m.getNombre());
         holder.votos.setText(m.getVotos()+"");
+
+        holder.foto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(activity, "Diste Like a: " + m.getNombre(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "El id de la fotos es: " + m.getId_fotos(), Toast.LENGTH_SHORT).show();
+                id_foto_instagram=m.getId_fotos();
+                id_instagram=m.getNombre();
+                enviardatos();
+
+                //EnviarRespuestaFirebase.enviardatosinstagram();
+            }
+        });
+
     }
+
+    private void enviardatos() {
+        Intent i = new Intent(activity, EnviarRespuestaAFirebase2.class);
+        i.putExtra("id_foto_instagram", id_foto_instagram);
+        i.putExtra("id_instagram", id_instagram);
+        activity.startActivity(i);
+
+    }
+
+
+
 
 
        /* mascotaViewHolder.btnHueso.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +133,7 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
 
 public static class ContactoViewHolder extends RecyclerView.ViewHolder{
     private ImageView foto;
-    private TextView nombre,votos,fecha;
+    private TextView nombre,votos,fecha, id_foto;
 
 
     public ContactoViewHolder(View itemView) {
@@ -96,6 +142,7 @@ public static class ContactoViewHolder extends RecyclerView.ViewHolder{
         nombre=(TextView)itemView.findViewById(R.id.tvNombreCV);
         votos=(TextView)itemView.findViewById(R.id.votos);
         fecha=(TextView)itemView.findViewById(R.id.fecha);
+        id_foto=(TextView)itemView.findViewById(R.id.id_fotos);
     }
 }
 }

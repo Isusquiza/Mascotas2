@@ -28,7 +28,7 @@ public class ConstantesRestApi {
 
     //usuarios sandbox
 
-    public static final String[] USUARIOS_SANDBOX={"4253551275","4275789769","4377271040","4302183848"};
-    public static final String[] USUARIOS_SANDBOX_NOMBRE={"gbrcode","turtus111","alephcoursera","rockymartinez77"};
+    public static final String[] USUARIOS_SANDBOX={"4253551275","4275789769","4377271040","4302183848","4666694013"};
+    public static final String[] USUARIOS_SANDBOX_NOMBRE={"gbrcode","turtus111","alephcoursera","rockymartinez77","perritopochito"};
     public static final String GET_MEDIA_USUARIO="users/{user-id}/media/recent/"+KEY_ACCESS_TOKEN+ACCESS_TOKEN;
 }

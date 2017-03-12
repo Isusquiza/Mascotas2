@@ -57,6 +57,14 @@
                 android:text="@string/fecha"
                 android:layout_marginTop="5dp"
                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/id_fotos"
+                android:text="11111"
+                android:textColor="@color/colorBlanco"
+                />
         </LinearLayout>
 
         <ImageButton
