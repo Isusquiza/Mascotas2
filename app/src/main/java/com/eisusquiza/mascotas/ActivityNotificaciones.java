@@ -80,7 +80,7 @@ public class ActivityNotificaciones extends AppCompatActivity {
 
         String token = FirebaseInstanceId.getInstance().getToken();
         enviarTokenRegistro(token, id_instagram_emisor);
-        Toast.makeText(this, "Su id_de teléfono es:" + token, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Su id_de teléfono es: " + token, Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "Su id_de instagram es: " + id_instagram_emisor, Toast.LENGTH_SHORT).show();
         SharedPreferences prefToken = getSharedPreferences("Token", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefToken.edit();

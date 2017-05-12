@@ -42,6 +42,12 @@
             </intent-filter>
         </service>
 
+        <receiver android:name=".ToqueAnimal">
+            <intent-filter>
+                <action  android:name="TOQUE_ANIMAL"/>
+            </intent-filter>
+        </receiver>
+
         <activity android:name=".ActivityNotificaciones" />
         <activity
             android:name=".EnviarRespuestaAFirebase2"

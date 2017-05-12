@@ -22,6 +22,7 @@
     <string name="txtusuario">Ingresa tu usuario</string>
     <string name="UsuariosSandbox">Usuarios que permitieron Sandbox: turtus111 y perritopochito</string>
     <string name="title_activity_enviar_respuesta_afirebase2">EnviarRespuestaAFirebase2</string>
+    <string name="texto_accion_toque">Devuelve el toque</string>
 
 
 </resources>
